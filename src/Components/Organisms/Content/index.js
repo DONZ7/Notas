@@ -3,13 +3,13 @@ import {View,Text,StyleSheet,ScrollView, TouchableOpacity, TouchableOpacityCompo
 import styles from './style';
 import {Note} from '../../Molecules';
 import {AddNote} from '../../Atoms';
-//import {Actions} from 'react-native-router-flux';
+import {Actions} from 'react-native-router-flux';
 //import CreateNote from '../../Views/CreateNote';
 
 const Content=()=>{
 
 const handlePress=()=>{
-    console.warn('hola este es una prueba');
+   Actions.CreateNote();
     
 }
 
@@ -19,7 +19,7 @@ const handlePress=()=>{
                 <TouchableOpacity onPress={()=>{handlePress}}>
                     <Note/>
                
-                <Text>ffff</Text>
+          
                 <Note/>
                 <Note/>
                 <Note/>
@@ -31,7 +31,7 @@ const handlePress=()=>{
             </ScrollView>
            
                 <View style={styles.noteBody} >  
-                <TouchableOpacity>              
+                <TouchableOpacity onPress={handlePress}>              
                     <AddNote/>
                 </TouchableOpacity>
 

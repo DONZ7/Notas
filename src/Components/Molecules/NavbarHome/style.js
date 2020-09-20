@@ -33,7 +33,7 @@ const styles=StyleSheet.create({
         alignItems:'center',
     },
     IconsContainerRigth:{
-        width:'30%',
+        width:'20%',
         flexDirection:'row',
        
         justifyContent:'space-around',

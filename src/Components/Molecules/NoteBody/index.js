@@ -1,35 +1,35 @@
-import React, { Fragment } from 'react';
-import {View,Text,ScrollView} from 'react-native';
+import React, { Fragment,useState } from 'react';
+import {View,Text,ScrollView,TextInput} from 'react-native';
 import styles from './style';
 
 import {Input,Images}  from '../../Atoms'
 
 const NoteBody=()=>{
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    
+    const notes=()=>{
+        console.warn({title,body})
+    }
     return(
         <Fragment>
             <ScrollView style={styles.container}>
               <View style={styles.noteBody}>
                 <View >
-                    <Text style={styles.text}>Titulo...</Text>
+                    
+                    <Input style={styles.text} name={title} action={setTitle}/>
+
                 </View>
                 <View style={styles.space}></View>
-                <View >
-                    <Text>hola  ddd dd
-                        sdmcdsbcbdsbj111111 11111  1nbhbhbhbh 1jbj
-                        sbdjbdsjjsbbhbh22kkkkkkkkfftrftftftftftftftftfyyyyyyygygygygyyyyyygygygygygygygyghhgvgvgvgggfgvghvhhhhhhhhhhhhhhhhhhhhhhhhh
-                        hbhbhbhbhbhbhb
-                        vgvgvgvgvbhbhbhbhbhbhbhbhbhbygygygygygygygygygygygynbhbhbhbhbhbhbhbhhhhhhfff
-                        jjjjhgfdfdfgdgfccgvgvhgvgvg
-                        ddgvdgvdgdvgdvgdvgdvgdvdgvsjdvhjsd
-                        ddhbdhbdhbdhbdhbd
-                        hhhhhhbhbhjbhbhbh
-                        jhjhjuh22222  jj       hfdffffggdd
-                        dddddddddddddddd h kkkk
-                        kkjjjjjjjjjjjjhhhvdsxvgdvxgsvxgsvxgvsgxvsgvxg
-                        hola  ddd dd11  1nbhbhbhbh 1jbj
-                
-                        </Text>
+
+                <View style={styles.noteBody}>
+                 <TextInput
+                    style={styles.box}
+                    onChangeText={setBody}
+                    value={body}
+                    />
                 </View>
+
                 <View style={styles.boxImage}>
                 <Images/>
                 </View>

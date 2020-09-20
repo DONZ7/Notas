@@ -1,6 +1,6 @@
 import Images from './Images';
 import AddNote from './AddNote';
-import Icon from './Icon';
+import Icons from './Icons';
 import Buttons from './Buttons';
 import Input from './Input';
 import Modals from './Modal';
@@ -8,7 +8,7 @@ import Modals from './Modal';
 
 export {Images,
 AddNote,
-Icon,
+Icons,
 Buttons,
 Input,
 Modals};

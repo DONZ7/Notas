@@ -1,9 +1,18 @@
 import React, { Fragment } from 'react';
-import {View,Text,StyleSheet} from 'react-native';
+import {View,Text,StyleSheet, ActivityIndicator} from 'react-native';
 import {Images,Buttons} from '../../Atoms';
 import styles from './style';
+import {Actions} from 'react-native-router-flux';
 
 const LogoStart=()=>{
+    const handleStart=()=>{
+        Actions.Login()
+    };
+
+    const handleRegistry=()=>{
+        Actions.Home()
+            };
+
     return(
         <Fragment>
             <View style={styles.container}>
@@ -14,9 +23,9 @@ const LogoStart=()=>{
                          <View style={styles.space}></View>
                     </View>
                     <View style={styles.row}>
-                        <Buttons name='INICIAR SESION'/>
+                        <Buttons name='INICIAR SESION' action={handleStart}/>
                         
-                        <Buttons name='REGISTRARSE'/>
+                        <Buttons name='REGISTRARSE' action={handleRegistry}/>
                     </View>
 
                       

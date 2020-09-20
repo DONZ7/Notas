@@ -4,12 +4,12 @@ import styles from './style';
 
 import {Buttons,Input,Icon} from '../../Atoms';
 import { Header,Content } from '../../Organisms';
-import { Navbar,LogoStart, Registry,LoginUsers } from '../../Molecules';
+import { Navbar,LogoStart, Registry,LoginUser } from '../../Molecules';
 const Login=()=>{
     return(
         <Fragment>
             <View style={styles.container}>
-                <LoginUsers/>
+                <Registry/>
             </View>
             
         </Fragment>

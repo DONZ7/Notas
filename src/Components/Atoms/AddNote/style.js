@@ -9,6 +9,8 @@ const styles=StyleSheet.create({
         width:58,
         borderRadius:29,
         margin:1, 
+        justifyContent:"center",
+        alignItems:"center"
     
     },
 

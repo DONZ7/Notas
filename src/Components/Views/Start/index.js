@@ -10,7 +10,7 @@ const Start=()=>{
     return(
         <Fragment>
             
-            <CreateNote/>
+            <LogoStart/>
             
             
         </Fragment>

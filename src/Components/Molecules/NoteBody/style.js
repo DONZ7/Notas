@@ -36,7 +36,13 @@ const styles=StyleSheet.create({
         fontSize:20,
         
     }
-
+,
+    box:{
+        
+        flex:1,
+        flexWrap:"wrap"
+        
+    }
 })
 
 export default styles;

@@ -6,7 +6,8 @@ const styles=StyleSheet.create({
     column:{
         flex:1,
         flexDirection:'column',
-        justifyContent:'center'
+        justifyContent:'center',
+        paddingHorizontal:10
    
     },
 
@@ -25,6 +26,11 @@ const styles=StyleSheet.create({
         marginHorizontal:10,
         fontSize:35,
         color:'purple'
+    },
+
+    margin:{
+        marginHorizontal:10,
+        
     }
 
 })
