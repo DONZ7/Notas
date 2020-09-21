@@ -6,7 +6,7 @@ import {Home, CreateNote,Login,Start,Registry} from './src/Components/Views';
 const Routers=()=>{
   return (
       <Router>
-        <Scene key="root">
+        <Stack key="root">
     
           <Scene key="Start" component={Start} title="Start" initial hideNavBar/>
           <Scene key='Login' component={Login} title="Login" hideNavBar/> 
@@ -14,7 +14,7 @@ const Routers=()=>{
           <Scene key="CreateNote" component={CreateNote} title="CreateNote"  hideNavBar/> 
           <Scene key="Home" component={Home} title="Home"  hideNavBar/>     
           
-        </Scene>
+        </Stack>
       </Router>
   );
 }

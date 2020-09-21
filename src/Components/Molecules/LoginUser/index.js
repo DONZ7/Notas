@@ -4,14 +4,14 @@ import styles from './style';
 import { Input, Buttons, Icons } from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
 
-import * as firebase from 'firebase';
+//import * as firebase from 'firebase';
 ///import firebase from 'firebase';
 
 
 const LoginUsers=()=>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+  /*  
     const registro=()=>{
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
@@ -21,10 +21,10 @@ const LoginUsers=()=>{
             // ...
           });
     }
-    
+    */
         const handleHome=()=>{
             console.warn({email,password})
-           registro();
+         //  registro();
             Actions.Home()
         };
     
