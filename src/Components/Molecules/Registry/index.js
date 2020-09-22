@@ -2,6 +2,7 @@ import React, { Fragment,useState } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
 import { Input, Buttons ,Icons} from '../../Atoms';
+import {Actions} from 'react-native-router-flux';
 
 const Registry=()=>{
     /*
@@ -21,6 +22,10 @@ const Registry=()=>{
     }
     */
     
+    
+   const handleStart=()=>{
+     Actions.Start()
+ };
         const handleHome=()=>{
            // console.warn({email,password})
             //registro();
@@ -31,26 +36,26 @@ const Registry=()=>{
         <Fragment>
             <View style={styles.column}>
                <View>
-               <TouchableOpacity onPress={handleHome}>
+               <TouchableOpacity onPress={handleStart}>
                      <Icons name="return-up-back" color="purple"/>
                 </TouchableOpacity>
                </View>
             <Text style={styles.text}>Registrarse</Text>
             
             <View style={styles.inputBox}>           
-                    <Input name="holaa"/>
+            <Input value=""  placeholder="Nombre"/>
                 </View>
                 <View style={styles.inputBox}>           
-                    <Input name="holaa"/>
+                <Input value=""  placeholder="Email"/>
                 </View>
                 <View style={styles.inputBox}>   
-                    <Input name="holaa"/>
+                <Input value=""  placeholder="Password"/>
                 </View>
                 <View style={styles.inputBox}>           
-                    <Input name="holaa"/>
+                <Input value=""  placeholder="Password"/>
                 </View>
-                <View Style={styles.inputBox}>
-                    <Buttons name="SIGUIENTE"/>
+                <View Style={styles.inputBox} >
+                    <Buttons name="SIGUIENTE" action={handleHome}/>
                 </View>
             </View>
         </Fragment>

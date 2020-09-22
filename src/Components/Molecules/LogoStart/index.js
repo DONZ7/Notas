@@ -10,7 +10,7 @@ const LogoStart=()=>{
     };
 
     const handleRegistry=()=>{
-        Actions.Home()
+        Actions.Registry()
             };
 
     return(

@@ -4,14 +4,13 @@ import styles from './style';
 import { Input, Buttons, Icons } from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
 
-//import * as firebase from 'firebase';
-///import firebase from 'firebase';
-
+//import {firebaseAuth} from './../../../firebase';
+//import 'firebase/auth';
 
 const LoginUsers=()=>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-  /*  
+  /*
     const registro=()=>{
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
@@ -22,9 +21,18 @@ const LoginUsers=()=>{
           });
     }
     */
+
+    const updateEmail=(value)=>{
+        setEmail(value);
+    }
+
+    const updatePassword=(value)=>{
+        setPassword(value);
+    }
+
         const handleHome=()=>{
             console.warn({email,password})
-         //  registro();
+          // registro();
             Actions.Home()
         };
     
@@ -40,10 +48,10 @@ const LoginUsers=()=>{
                 </TouchableOpacity>
             <Text style={styles.text}>Iniciar Sesion</Text>
                 <View style={styles.inputBox}>   
-                    <Input name={email} action={setEmail}/>
+                    <Input value={email} action={updateEmail} placeholder="Email"/>
                 </View>
                 <View style={styles.inputBox}>           
-                <Input name={password} action={setPassword}/>
+                <Input value={password} action={updatePassword} placeholder="Password"/>
                 </View>
                 <View Style={styles.inputBox}>
                     <Buttons name="SIGUIENTE" action={handleHome}/>
