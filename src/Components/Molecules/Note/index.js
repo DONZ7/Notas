@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
-import {View,Text,StyleSheet} from 'react-native';
+import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
 
 const Note=()=>{
     return(
         <Fragment>
-            <View style={styles.container}>
+            <TouchableOpacity >
+               <View style={styles.container}>
                 <View style={styles.column}>
                     <View style={styles.boxTittle}>
                         <Text style={styles.font}>Hola</Text>
@@ -20,6 +21,8 @@ const Note=()=>{
                 </View>
 
             </View>
+            </TouchableOpacity>
+ 
         </Fragment>
     );
 }

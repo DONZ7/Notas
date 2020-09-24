@@ -5,7 +5,7 @@ const styles=StyleSheet.create({
 
     container:{
         flex:1,
-        backgroundColor:'lightgray',
+        backgroundColor:'#c8e7f2',
     },
 })
 

@@ -16,7 +16,7 @@ const handlePress=()=>{
     return(
         <Fragment>
             <ScrollView >
-                <TouchableOpacity onPress={()=>{handlePress}}>
+                
                     <Note/>
                
           
@@ -27,7 +27,7 @@ const handlePress=()=>{
                 <Note/>
                 <Note/>
 
-                </TouchableOpacity>
+            
             </ScrollView>
            
                 <View style={styles.noteBody} >  

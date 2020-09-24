@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import {View,Text, Button} from 'react-native';
+import {View,Text, Button,StyleSheet,ImageBackground} from 'react-native';
 
 
 import {Modals} from '../../Atoms';
@@ -9,12 +9,19 @@ import CreateNote from '../CreateNote';
 const Start=()=>{
     return(
         <Fragment>
-            
-            <LogoStart/>
-            
-            
+            <ImageBackground source={require('./../../../img/fondo.jpg')} style={styles.container}>
+                 <LogoStart/>
+            </ImageBackground>
         </Fragment>
     );
 }
 
 export default Start;
+
+const styles=StyleSheet.create({
+
+    container:{
+        width:'100%',
+        height:'100%'
+    },
+})
