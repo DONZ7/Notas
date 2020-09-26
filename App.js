@@ -16,9 +16,11 @@ import {
   StatusBar,
 } from 'react-native';
 
-
 import Routers from './routers';
 //import {firebase} from './src/firebase';
+
+import {firebase} from './src/Components/Atoms'
+
 const App = () => {
   return (
     <Fragment>

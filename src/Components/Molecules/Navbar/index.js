@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
-import {Icons} from '../../Atoms';
+import {Icons,Modals} from '../../Atoms';
 import styles from './style';
 import NoteBody from '../../Molecules';
 

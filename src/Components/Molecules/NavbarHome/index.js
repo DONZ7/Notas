@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
-import {Icons} from '../../Atoms';
+import {Icons,Modals} from '../../Atoms';
 import styles from './style';
 import {Actions} from 'react-native-router-flux';
 
@@ -22,7 +22,7 @@ const NavbarHome=()=>{
                     </View>
                 <View style={styles.IconsContainerRigth}>
                 <TouchableOpacity onPress={handleOut}>
-                    <Icons name="log-out" color="white"/>
+                            <Modals/>
                 </TouchableOpacity>
                 </View>
             </View>

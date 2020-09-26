@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Icons} from '../../Atoms';
 import {
   Alert,
   Modal,
@@ -22,16 +23,28 @@ const Modals = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <Text style={styles.modalText}>Desea salir</Text>
 
+<View style={styles.column}>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              style={{ ...styles.openButton, backgroundColor: "green" }}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>si</Text>
             </TouchableHighlight>
+
+            <TouchableHighlight
+        style={{ ...styles.openButton, backgroundColor: "red" }}
+        onPress={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <Text style={styles.textStyle}>no</Text>
+      </TouchableHighlight>
+      </View>
+            
           </View>
         </View>
       </Modal>
@@ -42,8 +55,10 @@ const Modals = () => {
           setModalVisible(true);
         }}
       >
-        <Text style={styles.textStyle}>Show Modal</Text>
+       <Icons name="log-out" color="white"/>
       </TouchableHighlight>
+
+      
     </View>
   );
 };
@@ -53,13 +68,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+
   },
   modalView: {
-    margin: 20,
+    margin: 10,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
+    padding: 50,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -71,10 +86,10 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   openButton: {
-    backgroundColor: "#F194FF",
+    backgroundColor: "purple",
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 10
   },
   textStyle: {
     color: "white",
@@ -84,6 +99,10 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  column:{
+    flexDirection:"row",
+   
   }
 });
 

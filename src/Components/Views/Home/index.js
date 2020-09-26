@@ -4,10 +4,10 @@ import styles from './style';
 import { Header,Content } from '../../Organisms';
 import {Actions} from 'react-native-router-flux';
 import {getData} from './../../../hooks/firebase';
-//import 'firebase/firestore';
+
 
 const Home =()=>{
-/*
+
    useEffect(()=>{ 
         itemsData();
     },[]);
@@ -16,7 +16,7 @@ const Home =()=>{
         let items=await getData();
         console.warn(items);
     }
-    */
+    
 
     return(
         <Fragment>
