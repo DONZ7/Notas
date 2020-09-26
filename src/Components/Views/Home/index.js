@@ -3,12 +3,12 @@ import {View,ImageBackground} from 'react-native';
 import styles from './style';
 import { Header,Content } from '../../Organisms';
 import {Actions} from 'react-native-router-flux';
-//import {getData} from './../../../hooks/firebase';
+import {getData} from './../../../hooks/firebase';
 //import 'firebase/firestore';
 
 const Home =()=>{
-
-   /* useEffect(()=>{ 
+/*
+   useEffect(()=>{ 
         itemsData();
     },[]);
 
@@ -16,7 +16,8 @@ const Home =()=>{
         let items=await getData();
         console.warn(items);
     }
-*/
+    */
+
     return(
         <Fragment>
              <ImageBackground source={require('./../../../img/fondo.jpg')} style={styles.container}>

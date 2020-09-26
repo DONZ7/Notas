@@ -4,15 +4,15 @@ import styles from './style';
 import { Input, Buttons, Icons } from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
 
-//import {firebaseAuth} from './../../../firebase';
-//import 'firebase/auth';
+import {firebaseAuth} from '../../../firebase/index';
+
 
 const LoginUsers=()=>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-  /*
+  
     const registro=()=>{
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        firebase.firebaseAuth().createUserWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -20,7 +20,7 @@ const LoginUsers=()=>{
             // ...
           });
     }
-    */
+    
 
     const updateEmail=(value)=>{
         setEmail(value);
@@ -32,7 +32,7 @@ const LoginUsers=()=>{
 
         const handleHome=()=>{
             console.warn({email,password})
-          // registro();
+           //registro();
             Actions.Home()
         };
     
