@@ -4,9 +4,6 @@ import styles from './style';
 import { Input, Buttons, Icons } from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
 
-import {firebaseAuth} from '../../../firebase/index';
-
-
 const LoginUsers=()=>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
