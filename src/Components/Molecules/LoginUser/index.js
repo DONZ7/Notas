@@ -1,5 +1,5 @@
 import React, { Fragment,useState } from 'react';
-import {View,Text,StyleSheet,TouchableOpacity} from 'react-native';
+import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
 import { Input, Buttons, Icons } from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
@@ -12,7 +12,7 @@ const LoginUsers=()=>{
     const login = async () => {
         try {
           const {user} = await auth().createUserWithEmailAndPassword(
-            'sosa96@gmail.com',
+            'prueba@gmail.com',
             'asd.456',
           );
           console.log(user);
@@ -21,18 +21,13 @@ const LoginUsers=()=>{
         }
       };
 
-
+/*
+      const signedOut = async () => {
     
-    const registro=()=>{
-        firebase.firebaseAuth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.warn(errorMessage);
-            // ...
-          });
-    }
-    
+      auth()
+  .signOut()
+  .then(() => console.log('User signed out!'));
+};*/
 
     const updateEmail=(value)=>{
         setEmail(value);
