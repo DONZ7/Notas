@@ -3,11 +3,26 @@ import {View,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import styles from './style';
 import { Input, Buttons, Icons } from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
+import auth from '@react-native-firebase/auth';
 
 const LoginUsers=()=>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
+    const login = async () => {
+        try {
+          const {user} = await auth().createUserWithEmailAndPassword(
+            'sosa96@gmail.com',
+            'asd.456',
+          );
+          console.log(user);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+
+    
     const registro=()=>{
         firebase.firebaseAuth().createUserWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
@@ -29,7 +44,7 @@ const LoginUsers=()=>{
 
         const handleHome=()=>{
             console.warn({email,password})
-           //registro();
+           login();
             Actions.Home()
         };
     

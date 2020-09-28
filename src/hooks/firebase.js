@@ -1,10 +1,10 @@
 
-import {db} from '../firebase';
+import firestore from '@react-native-firebase/firestore';
 
 export const getData = async()=>{
     const datos=[];
     try{
-        let dat=db.collection('notas');
+        let dat=firestore().collection('notas');
             datos = await dat.get();
             datos.forEach((doc) => {
             datos.push({id: doc.id, ...doc.data()});
