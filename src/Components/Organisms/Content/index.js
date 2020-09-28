@@ -12,15 +12,12 @@ const handlePress=()=>{
    Actions.CreateNote();
     
 }
-
     return(
         <Fragment>
             <ScrollView >
-                
                     <Note/>
                
-          
-                <Note/>
+                <Note />
                 <Note/>
                 <Note/>
                 <Note/>

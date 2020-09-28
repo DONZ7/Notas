@@ -21,8 +21,8 @@ const NavbarHome=()=>{
                         <Text style={styles.text}>Titulo</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
-                <TouchableOpacity onPress={handleOut}>
-                            <Modals/>
+                <TouchableOpacity >
+                            <Modals name='log-out' message='¿Desea cerrar sesion?' action={handleOut}/>
                 </TouchableOpacity>
                 </View>
             </View>

@@ -12,8 +12,8 @@ const LoginUsers=()=>{
     const login = async () => {
         try {
           const {user} = await auth().createUserWithEmailAndPassword(
-            'prueba@gmail.com',
-            'asd.456',
+            email,
+            password,
           );
           console.log(user);
         } catch (error) {

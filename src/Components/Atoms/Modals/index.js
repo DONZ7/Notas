@@ -9,7 +9,7 @@ import {
   View
 } from "react-native";
 
-const Modals = () => {
+const Modals = ({name,message,action}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
@@ -23,25 +23,25 @@ const Modals = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Desea salir</Text>
+            <Text style={styles.modalText}>{message}</Text>
 
 <View style={styles.column}>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "green" }}
+              style={{ ...styles.openButton2,backgroundColor:'#C28ECD' }}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle}>si</Text>
+              <Text style={styles.textStyle} onPress={action}>Si</Text>
             </TouchableHighlight>
 
             <TouchableHighlight
-        style={{ ...styles.openButton, backgroundColor: "red" }}
+        style={{ ...styles.openButton2,backgroundColor:'#C28ECD'}}
         onPress={() => {
           setModalVisible(!modalVisible);
         }}
       >
-        <Text style={styles.textStyle}>no</Text>
+        <Text style={styles.textStyle}>No</Text>
       </TouchableHighlight>
       </View>
             
@@ -55,7 +55,7 @@ const Modals = () => {
           setModalVisible(true);
         }}
       >
-       <Icons name="log-out" color="white"/>
+       <Icons name={name} color="white"/>
       </TouchableHighlight>
 
       
@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 10,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 50,
+    backgroundColor: "#F3E7FA",
+    borderRadius: 10,
+    padding: 70,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -86,19 +86,27 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   openButton: {
-    backgroundColor: "purple",
+   // backgroundColor: "purple",
     borderRadius: 20,
     padding: 10,
-    elevation: 10
+    //elevation: 5
   },
+  openButton2: {
+    // backgroundColor: "purple",
+    marginHorizontal:5,
+     borderRadius: 10,
+     padding: 20,
+     elevation: 5
+   },
   textStyle: {
-    color: "white",
+    color: "purple",
     fontWeight: "bold",
     textAlign: "center"
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: "center",
+    color:'purple'
   },
   column:{
     flexDirection:"row",

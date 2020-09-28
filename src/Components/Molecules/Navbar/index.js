@@ -2,11 +2,14 @@ import React, { Fragment } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
 import {Icons,Modals} from '../../Atoms';
 import styles from './style';
+import {Actions} from 'react-native-router-flux';
 import NoteBody from '../../Molecules';
+
 
 const Navbar=(props)=>{
     const {title,body}=props
     const notes=()=>{
+        Actions.Home()
         console.warn({title,body})
     }
     return(
@@ -17,7 +20,7 @@ const Navbar=(props)=>{
                     <Icons name="checkmark-sharp" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Icons name="close" color="white"/>
+                <Modals name='close' message='¿Desea cancelar esta nota de texto?'/>
                 </TouchableOpacity>
                 </View>
                     <View >
@@ -31,7 +34,7 @@ const Navbar=(props)=>{
                     <Icons name="image" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Icons name="trash" color="white"/>
+                             <Modals name='trash' message='¿Desea eliminar esta nota de texto?'/>
                 </TouchableOpacity>
                 </View>
                     

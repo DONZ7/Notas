@@ -7,7 +7,7 @@ import {getData} from './../../../hooks/firebase';
 
 
 const Home =()=>{
-
+/*
    useEffect(()=>{ 
         itemsData();
     },[]);
@@ -16,7 +16,7 @@ const Home =()=>{
         let items=await getData();
         console.warn(items);
     }
-    
+    */
 
     return(
         <Fragment>
