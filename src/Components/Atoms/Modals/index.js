@@ -28,11 +28,13 @@ const Modals = ({name,message,action}) => {
 <View style={styles.column}>
             <TouchableHighlight
               style={{ ...styles.openButton2,backgroundColor:'#C28ECD' }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
+               onPress={() => {
+               // onPress=
+               {action()}
+               setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle} onPress={action}>Si</Text>
+              <Text style={styles.textStyle} >Si</Text>
             </TouchableHighlight>
 
             <TouchableHighlight

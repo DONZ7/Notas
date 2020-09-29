@@ -6,7 +6,7 @@ import {AddNote} from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
 //import CreateNote from '../../Views/CreateNote';
 
-const Content=()=>{
+const Content=({note})=>{
 
 const handlePress=()=>{
    Actions.CreateNote();
@@ -15,15 +15,11 @@ const handlePress=()=>{
     return(
         <Fragment>
             <ScrollView >
-                    <Note/>
-               
-                <Note />
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
-
+            { Array(8).fill(note).map(nate=>{
+                return <Note note={note}/>
+                })
+            }
+                    
             
             </ScrollView>
            

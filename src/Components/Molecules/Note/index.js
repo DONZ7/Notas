@@ -3,9 +3,11 @@ import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
 import {getData} from './../../../hooks/firebase';
 
-const Note=()=>{
+const Note=({note})=>{
+  //  const {title,paragraph}=props
    // const [tittle, setTitle] = useState("");
     //const [paragraph, setParagraph] = useState("")
+const {title,paragraph}=note
     var items=[];
     useEffect(()=>{ 
         itemsData();
@@ -22,12 +24,12 @@ const Note=()=>{
                <View style={styles.container}>
                 <View style={styles.column}>
                     <View style={styles.boxTittle}>
-                        <Text style={styles.font}>{items}</Text>
+                        <Text style={styles.font}>{title}</Text>
                     </View>
                     <View style={styles.boxText}>
                         <View style={styles.boxImage}></View>
                         <View style={styles.text}>
-                            <Text>holasss</Text>
+                            <Text>{paragraph}</Text>
                         </View>
                     </View>
                     

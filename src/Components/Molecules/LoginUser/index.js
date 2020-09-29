@@ -11,23 +11,24 @@ const LoginUsers=()=>{
   
     const login = async () => {
         try {
-          const {user} = await auth().createUserWithEmailAndPassword(
+          const {user} = await auth().signInWithEmailAndPassword(
             email,
             password,
           );
           console.log(user);
+          Actions.Home()
         } catch (error) {
-          console.log(error);
+            if (error.code === 'auth/email-already-in-use') {
+                console.log('That email address is already in use!');
+              }
+          
+              if (error.code === 'auth/invalid-email') {
+                console.log('That email address is invalid!');
+              }
+          console.error(error);
         }
       };
 
-/*
-      const signedOut = async () => {
-    
-      auth()
-  .signOut()
-  .then(() => console.log('User signed out!'));
-};*/
 
     const updateEmail=(value)=>{
         setEmail(value);
@@ -40,7 +41,7 @@ const LoginUsers=()=>{
         const handleHome=()=>{
             console.warn({email,password})
            login();
-            Actions.Home()
+            
         };
     
         const handleStart=()=>{

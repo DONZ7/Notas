@@ -9,6 +9,15 @@ const NavbarHome=()=>{
         Actions.Start()
             };
 
+
+    /*
+      const signedOut = async () => {
+    
+      auth()
+  .signOut()
+  .then(() => console.log('User signed out!'));
+};*/
+
     return(
         <Fragment>
             <View style={styles.container}>
@@ -21,9 +30,9 @@ const NavbarHome=()=>{
                         <Text style={styles.text}>Titulo</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
-                <TouchableOpacity >
+                
                             <Modals name='log-out' message='¿Desea cerrar sesion?' action={handleOut}/>
-                </TouchableOpacity>
+                
                 </View>
             </View>
         </Fragment>

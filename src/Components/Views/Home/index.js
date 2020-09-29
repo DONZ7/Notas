@@ -17,13 +17,17 @@ const Home =()=>{
         console.warn(items);
     }
     */
+   const note ={
+    title:'hola',
+    paragraph:'Este es una prueba exitosa'
+}
 
     return(
         <Fragment>
              <ImageBackground source={require('./../../../img/fondo.jpg')} style={styles.container}>
             <View style={styles.container}>
                  <Header/>
-                 <Content/>  
+                 <Content note={note}/>  
             </View>
             </ImageBackground>
         </Fragment>
