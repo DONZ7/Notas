@@ -8,15 +8,7 @@ const Note=({note})=>{
    // const [tittle, setTitle] = useState("");
     //const [paragraph, setParagraph] = useState("")
 const {title,paragraph}=note
-    var items=[];
-    useEffect(()=>{ 
-        itemsData();
-    },[]);
-
-    const itemsData=async()=>{ 
-    items=await getData();
-        console.warn(items);
-    }
+ 
 
     return(
         <Fragment>

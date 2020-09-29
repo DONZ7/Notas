@@ -7,7 +7,8 @@ import {getData} from './../../../hooks/firebase';
 
 
 const Home =()=>{
-/*
+  const [data, setData] = useState("");
+  
    useEffect(()=>{ 
         itemsData();
     },[]);
@@ -16,7 +17,7 @@ const Home =()=>{
         let items=await getData();
         console.warn(items);
     }
-    */
+    
    const note ={
     title:'hola',
     paragraph:'Este es una prueba exitosa'
