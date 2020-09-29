@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect,useState } from 'react';
 import {View,ImageBackground} from 'react-native';
 import styles from './style';
 import { Header,Content } from '../../Organisms';
@@ -7,15 +7,16 @@ import {getData} from './../../../hooks/firebase';
 
 
 const Home =()=>{
-  const [data, setData] = useState("");
-  
+  const [Data, setData] = useState([]);
+
    useEffect(()=>{ 
         itemsData();
     },[]);
 
     const itemsData=async()=>{ 
         let items=await getData();
-        console.warn(items);
+        setData(items);
+       // console.warn(Data);
     }
     
    const note ={
@@ -28,7 +29,7 @@ const Home =()=>{
              <ImageBackground source={require('./../../../img/fondo.jpg')} style={styles.container}>
             <View style={styles.container}>
                  <Header/>
-                 <Content note={note}/>  
+                 <Content Data={Data}/>  
             </View>
             </ImageBackground>
         </Fragment>

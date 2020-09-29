@@ -3,11 +3,11 @@ import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
 import {getData} from './../../../hooks/firebase';
 
-const Note=({note})=>{
+const Note=(props)=>{
   //  const {title,paragraph}=props
    // const [tittle, setTitle] = useState("");
     //const [paragraph, setParagraph] = useState("")
-const {title,paragraph}=note
+//const {titulo,contenido}=item
  
 
     return(
@@ -16,12 +16,12 @@ const {title,paragraph}=note
                <View style={styles.container}>
                 <View style={styles.column}>
                     <View style={styles.boxTittle}>
-                        <Text style={styles.font}>{title}</Text>
+                        <Text style={styles.font}>{props.titulo}</Text>
                     </View>
                     <View style={styles.boxText}>
                         <View style={styles.boxImage}></View>
                         <View style={styles.text}>
-                            <Text>{paragraph}</Text>
+                            <Text>{props.contenido}</Text>
                         </View>
                     </View>
                     

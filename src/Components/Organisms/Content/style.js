@@ -1,5 +1,5 @@
 
-import {StyleSheet} from 'react-native';
+import {StyleSheet,StatusBar} from 'react-native';
 
 const styles=StyleSheet.create({
 
@@ -10,6 +10,10 @@ const styles=StyleSheet.create({
         backgroundColor:'white',
         borderRadius:3
     },
+    container2: {
+        flex: 1,
+        marginTop: StatusBar.currentHeight || 0,
+      },
 
     noteBody:{
       
