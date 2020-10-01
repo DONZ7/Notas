@@ -59,7 +59,7 @@ const LoginUsers=()=>{
                     <Input value={email} action={updateEmail} placeholder="Email"/>
                 </View>
                 <View style={styles.inputBox}>           
-                <Input value={password} action={updatePassword} placeholder="Password"/>
+                <Input value={password} action={updatePassword} placeholder="Password" />
                 </View>
                 <View Style={styles.inputBox}>
                     <Buttons name="SIGUIENTE" action={handleHome}/>

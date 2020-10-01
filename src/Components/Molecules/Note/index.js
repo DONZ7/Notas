@@ -4,11 +4,6 @@ import styles from './style';
 import {getData} from './../../../hooks/firebase';
 
 const Note=(props)=>{
-  //  const {title,paragraph}=props
-   // const [tittle, setTitle] = useState("");
-    //const [paragraph, setParagraph] = useState("")
-//const {titulo,contenido}=item
- 
 
     return(
         <Fragment>

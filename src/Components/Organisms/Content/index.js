@@ -14,7 +14,7 @@ const handlePress=()=>{
 
 const handleNote=({item})=>{
     console.warn({item});
-    return <Note titulo={item.titulo} contenido={item.titulo}/>
+    return <Note titulo={item.titulo} contenido={item.contenido}/>
  }
  
 
@@ -26,7 +26,6 @@ const handleNote=({item})=>{
                 data={Data}
                 renderItem={handleNote}
                 keyExtractor={items => items.id}/>
-                    
            
             </ScrollView>
            

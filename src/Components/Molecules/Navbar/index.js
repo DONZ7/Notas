@@ -3,15 +3,18 @@ import {View,Text,TouchableOpacity} from 'react-native';
 import {Icons,Modals} from '../../Atoms';
 import styles from './style';
 import {Actions} from 'react-native-router-flux';
-import NoteBody from '../../Molecules';
+//import NoteBody from '../../Molecules';
 
 
-const Navbar=(props)=>{
-    const {title,body}=props
+const Navbar=({titulo,contenido,action})=>{
+    
+
     const notes=()=>{
-        Actions.Home()
-        console.warn({title,body})
+      action(titulo,contenido);
+      //console.warn({titulo,contenido})
+       Actions.Home()
     }
+    
     return(
         <Fragment>
             <View style={styles.container}>

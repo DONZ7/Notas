@@ -4,19 +4,24 @@ import {StyleSheet} from 'react-native';
 const styles=StyleSheet.create({
 
     container:{
+        flex:1,
         flexDirection:'row',
-        backgroundColor:'purple',
-        height:100,
+        backgroundColor:'white',
+       
         borderRadius:5,
         margin:10, 
+        padding:10
     
     },
 
     column:{
        flex:1,
         flexDirection:'column',
-        backgroundColor:'white',
+        //backgroundColor:'white',
      borderRadius:5,
+     
+     
+
     },
 
     boxText:{

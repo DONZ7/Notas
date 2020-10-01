@@ -3,26 +3,13 @@ import {View,Text,ScrollView,TextInput,StyleSheet} from 'react-native';
 import styles from './style';
 import Textarea from 'react-native-textarea';
 
+import firestore from '@react-native-firebase/firestore';
+
 import {Input,Images}  from '../../Atoms'
 
-const NoteBody=()=>{
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    
-    const updateTitle=(value)=>{
-        setTitle(value);
-    }
-
-    const updateBody=(value)=>{
-        setBody(value);
-    }
+const NoteBody=({titulo,updateTitle,updateBody,contenido})=>{
 
 
-    const notes=()=>{
-        console.warn({title,body})
-    }
-
-    //notes();
     return(
         <Fragment>
             <ScrollView style={styles.container}>
@@ -33,7 +20,8 @@ const NoteBody=()=>{
                     style={styles.text}
                     placeholder='Titulo..'
                     onChangeText={updateTitle}
-                    value={title}
+                    value={titulo}
+                    maxLength={30}
                     />
 
                 </View>
@@ -45,8 +33,8 @@ const NoteBody=()=>{
                         containerStyle={styles.textareaContainer}
                         style={styles.textarea}
                         onChangeText={updateBody}
-                        value={body}
-                        maxLength={300}
+                        value={contenido}
+                        maxLength={200}
                         placeholder={'Texto...'}
                         placeholderTextColor={'#c7c7c7'}
                         underlineColorAndroid={'transparent'}

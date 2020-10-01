@@ -4,7 +4,7 @@ import styles from './style';
 import { TextInput } from 'react-native';
 
 const Input = (props) => {
-  const {value,action,placeholder}=props
+  const {value,action,placeholder,password}=props
 
   return (
     <TextInput
@@ -12,6 +12,7 @@ const Input = (props) => {
       placeholder={placeholder}
       onChangeText={action}
       value={value}
+     
     />
   );
 }

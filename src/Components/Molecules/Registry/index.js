@@ -3,24 +3,44 @@ import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
 import { Input, Buttons ,Icons} from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
+import auth from '@react-native-firebase/auth';
 
 const Registry=()=>{
-    /*
-    const [usuario, setUsuario] = useState("");
+    
+    const [users, setUsers] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     
-    const registro=()=>{
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.warn(errorMessage);
-            // ...
-          });
+    const updateEmail=(value)=>{
+        setEmail(value);
     }
-    */
+
+    const updatePassword=(value)=>{
+        setPassword(value);
+    }
+
+    const updateUSers=(value)=>{
+        setUsers(value);
+    }
+
+    const updatePassword2=(value)=>{
+        setPassword2(value);
+    }
+
+    const registro= async(users)=>{
+        try {
+            await auth().createUserWithEmailAndPassword(email, password);
+            Actions.Home();
+            return auth.currentUser.updateProfile({displayName:users})
+                
+            } catch (error) {
+                
+              console.error(error);
+            }
+          };
+    
+    
     
     
    const handleStart=()=>{
@@ -28,8 +48,8 @@ const Registry=()=>{
  };
         const handleHome=()=>{
            // console.warn({email,password})
-            //registro();
-            Actions.Home()
+            registro();
+            
         };
 
     return(
@@ -43,16 +63,16 @@ const Registry=()=>{
             <Text style={styles.text}>Registrarse</Text>
             
             <View style={styles.inputBox}>           
-            <Input value=""  placeholder="Nombre"/>
+            <Input value={users} action={updateUSers} placeholder="Nombre"/>
                 </View>
                 <View style={styles.inputBox}>           
-                <Input value=""  placeholder="Email"/>
+                <Input value={email} action={updateEmail} placeholder="Email"/>
                 </View>
                 <View style={styles.inputBox}>   
-                <Input value=""  placeholder="Password"/>
+                <Input value={password}  action={updatePassword} placeholder="Password"/>
                 </View>
                 <View style={styles.inputBox}>           
-                <Input value=""  placeholder="Password"/>
+                <Input value={password2} action={updatePassword2}  placeholder="Password"/>
                 </View>
                 <View Style={styles.inputBox} >
                     <Buttons name="SIGUIENTE" action={handleHome}/>

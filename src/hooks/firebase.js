@@ -15,3 +15,16 @@ export const getData = async()=>{
 }
 return datos;
 };
+
+
+export const setData = async(titulo,contenido)=>{
+    const obj={titulo,contenido};
+    try{
+        await firestore().collection('notas')
+            .add(obj);
+        }
+        
+ catch (error){
+    console.warn(error);
+}
+};
