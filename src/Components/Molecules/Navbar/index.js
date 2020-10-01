@@ -4,16 +4,27 @@ import {Icons,Modals} from '../../Atoms';
 import styles from './style';
 import {Actions} from 'react-native-router-flux';
 //import NoteBody from '../../Molecules';
+import {deleteData} from './../../../hooks/firebase';
 
-
-const Navbar=({titulo,contenido,action})=>{
+const Navbar=({id,titulo,contenido,action})=>{
     
 
     const notes=()=>{
-      action(titulo,contenido);
-      //console.warn({titulo,contenido})
+      action(id,titulo,contenido);
+     // console.warn({id,titulo,contenido})
        Actions.Home()
     }
+
+    const deleteNote=()=>{
+        deleteData(id);
+        Actions.Home()
+        console.warn({id})
+    }
+
+    const handleHome=()=>{
+        //console.warn({titulo,contenido})
+         Actions.Home()
+      }
     
     return(
         <Fragment>
@@ -23,21 +34,19 @@ const Navbar=({titulo,contenido,action})=>{
                     <Icons name="checkmark-sharp" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                <Modals name='close' message='¿Desea cancelar esta nota de texto?'/>
+                <Modals name='close' message='¿Desea cancelar esta nota de texto?' action={handleHome}/>
                 </TouchableOpacity>
                 </View>
                     <View >
                         <Text style={styles.text}>Titulo</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
-                <TouchableOpacity>
-                    <Icons name="pencil" color="white"/>
-                </TouchableOpacity>
+                
                 <TouchableOpacity>
                     <Icons name="image" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                             <Modals name='trash' message='¿Desea eliminar esta nota de texto?'/>
+                             <Modals name='trash' message='¿Desea eliminar esta nota de texto?' action={deleteNote}/>
                 </TouchableOpacity>
                 </View>
                     

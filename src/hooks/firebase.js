@@ -21,10 +21,27 @@ export const setData = async(titulo,contenido)=>{
     const obj={titulo,contenido};
     try{
         await firestore().collection('notas')
-            .add(obj);
+            .add({titulo,contenido});
         }
         
  catch (error){
     console.warn(error);
 }
+};
+
+export const EditData = async(id,titulo,contenido)=>{
+    const obj={titulo,contenido};
+    try{
+        await firestore().collection('notas').doc(id)
+            .update(obj);
+        }
+        
+ catch (error){
+    console.warn(error);
+}
+};
+
+export const deleteData = async(id)=>{
+    //const obj={titulo,contenido};
+        await firestore().collection('notas').doc(id).delete();
 };

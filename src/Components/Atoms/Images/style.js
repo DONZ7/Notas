@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles=StyleSheet.create({
     image:{
-        backgroundColor:'red',
+        backgroundColor:'purple',
         width:230,
         height:250,
     },

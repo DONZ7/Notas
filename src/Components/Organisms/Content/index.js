@@ -13,8 +13,8 @@ const handlePress=()=>{
 }
 
 const handleNote=({item})=>{
-    console.warn({item});
-    return <Note titulo={item.titulo} contenido={item.contenido}/>
+    //console.warn({item});
+    return <Note titulo={item.titulo} contenido={item.contenido} id={item.id}/>
  }
  
 

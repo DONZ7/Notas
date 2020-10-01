@@ -2,12 +2,18 @@ import React, { Fragment,useEffect } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
 import {getData} from './../../../hooks/firebase';
+import {Actions} from 'react-native-router-flux';
 
 const Note=(props)=>{
 
+    const Edit=()=>{
+        Actions.EditNote(props)
+        console.warn(props.titulo,props.contenido);
+    }
+
     return(
         <Fragment>
-            <TouchableOpacity >
+            <TouchableOpacity  onPress={Edit}>
                <View style={styles.container}>
                 <View style={styles.column}>
                     <View style={styles.boxTittle}>
