@@ -1,7 +1,7 @@
 import React, { Fragment,useState } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
 import styles from './style';
-import { Input, Buttons, Icons } from '../../Atoms';
+import { Input, Buttons, Icons,Alert } from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
 import auth from '@react-native-firebase/auth';
 
@@ -11,23 +11,38 @@ const LoginUsers=()=>{
     const [password, setPassword] = useState("");
   
     const login = async () => {
+
         try {
           const {user} = await auth().signInWithEmailAndPassword(
             email,
             password
           );
-                    
+     
           console.warn(user.uid);
           Actions.Home()
         } catch (error) {
+
+            
             if (error.code === 'auth/email-already-in-use') {
-                console.log('That email address is already in use!');
+                alert('Dhola');
+                console.warn('That email address is already in use!');
               }
           
               if (error.code === 'auth/invalid-email') {
-                console.log('That email address is invalid!');
+                alert('El correo ingresado es invalido');
+                console.warn('That email address is invalid!');
               }
-          console.error(error);
+
+              if (error.code === 'auth/user-not-found') {
+                alert('Usuario no registrado');
+                console.warn('Usuario no registrado');
+              }
+
+              if (error.code === 'auth/wrong-password') {
+                alert('La contraseña ingresada es incorrecta');
+                console.warn('Usuario no registrado');
+              }
+          console.error(error.code);
         }
       };
 
@@ -41,9 +56,13 @@ const LoginUsers=()=>{
     }
 
         const handleHome=()=>{
-            console.warn({email,password})
-           login();
-            
+            if (password=="" || email=="") { 
+                alert('Debe de llenar todos los campos');
+               }
+             else{ 
+                login();
+               }
+        
         };
     
         const handleStart=()=>{
