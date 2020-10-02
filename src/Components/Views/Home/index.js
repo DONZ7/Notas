@@ -24,7 +24,6 @@ console.warn('User email: ', user.uid);
         let items=await getData();
         setData(items);
         setUserName(user.displayName)
-       // console.warn(Data);
     }
 
     return(

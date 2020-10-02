@@ -32,10 +32,10 @@ const Registry=()=>{
 
     const registro= async()=>{
         try {
-            await auth().createUserWithEmailAndPassword(email, password);
+             await auth().createUserWithEmailAndPassword(email, password);
             Actions.Home();
             const update = {displayName: users};
-            auth().currentUser.updateProfile(update);
+            const {user} =await auth().currentUser.updateProfile(update);
             
             } catch (error) {
                 

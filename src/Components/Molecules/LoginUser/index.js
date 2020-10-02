@@ -14,7 +14,7 @@ const LoginUsers=()=>{
         try {
           const {user} = await auth().signInWithEmailAndPassword(
             email,
-            password,
+            password
           );
                     
           console.warn(user.uid);

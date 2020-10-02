@@ -14,9 +14,7 @@ const Navbar=({id,titulo,contenido,action})=>{
         
     },[]);
 
-
-
-    const user = auth().currentUser;
+   // const user = auth().currentUser;
 
 
     const deleteNote=()=>{
@@ -42,7 +40,7 @@ const Navbar=({id,titulo,contenido,action})=>{
                 </TouchableOpacity>
                 </View>
                     <View >
-                        <Text style={styles.text}>{user.displayName}</Text>
+                        <Text style={styles.text}>h</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
                 
