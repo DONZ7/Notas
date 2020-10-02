@@ -9,11 +9,6 @@ import {deleteData} from './../../../hooks/firebase';
 const Navbar=({id,titulo,contenido,action})=>{
     
 
-    const notes=()=>{
-      action(id,titulo,contenido);
-     // console.warn({id,titulo,contenido})
-       Actions.Home()
-    }
 
     const deleteNote=()=>{
         deleteData(id);
@@ -30,7 +25,7 @@ const Navbar=({id,titulo,contenido,action})=>{
         <Fragment>
             <View style={styles.container}>
                 <View style={styles.IconsContainer}>
-                <TouchableOpacity onPress={notes}>
+                <TouchableOpacity onPress={action}>
                     <Icons name="checkmark-sharp" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>

@@ -3,6 +3,7 @@ import {View,Text} from 'react-native';
 import { Navbar,NoteBody } from '../../Molecules';
 import styles from './style';
 import {EditData} from './../../../hooks/firebase';
+import {Actions} from 'react-native-router-flux';
 
 const EditNote=(props)=>{
   
@@ -22,8 +23,9 @@ const EditNote=(props)=>{
     }
     
 
-    const EditNote=(id,titulo,contenido)=>{
+    const EditNote=()=>{
         EditData(id,titulo,contenido);
+        Actions.Home();
         console.warn({id})
     }
 
