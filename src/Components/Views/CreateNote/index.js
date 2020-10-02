@@ -4,6 +4,8 @@ import { Navbar,NoteBody } from '../../Molecules';
 import styles from './style';
 import {setData} from './../../../hooks/firebase';
 import {Actions} from 'react-native-router-flux';
+import auth from '@react-native-firebase/auth';
+
 const CreateNote=(props)=>{
   
     const [titulo, setTitulo] = useState("");

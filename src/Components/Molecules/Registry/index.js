@@ -11,6 +11,8 @@ const Registry=()=>{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
+
+    const user = auth().currentUser;
     
     const updateEmail=(value)=>{
         setEmail(value);
@@ -28,12 +30,13 @@ const Registry=()=>{
         setPassword2(value);
     }
 
-    const registro= async(users)=>{
+    const registro= async()=>{
         try {
             await auth().createUserWithEmailAndPassword(email, password);
             Actions.Home();
-            return auth.currentUser.updateProfile({displayName:users})
-                
+            const update = {displayName: users};
+            auth().currentUser.updateProfile(update);
+            
             } catch (error) {
                 
               console.error(error);

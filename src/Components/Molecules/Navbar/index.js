@@ -1,13 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment,useEffect } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
 import {Icons,Modals} from '../../Atoms';
 import styles from './style';
 import {Actions} from 'react-native-router-flux';
-//import NoteBody from '../../Molecules';
+import auth from '@react-native-firebase/auth';
+
 import {deleteData} from './../../../hooks/firebase';
 
 const Navbar=({id,titulo,contenido,action})=>{
-    
+
+
+    useEffect(()=>{ 
+        
+    },[]);
+
+
+
+    const user = auth().currentUser;
 
 
     const deleteNote=()=>{
@@ -33,7 +42,7 @@ const Navbar=({id,titulo,contenido,action})=>{
                 </TouchableOpacity>
                 </View>
                     <View >
-                        <Text style={styles.text}>Titulo</Text>
+                        <Text style={styles.text}>{user.displayName}</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
                 

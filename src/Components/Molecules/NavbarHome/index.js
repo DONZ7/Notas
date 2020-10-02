@@ -6,6 +6,7 @@ import {Actions} from 'react-native-router-flux';
 import auth from '@react-native-firebase/auth';
 
 const NavbarHome=({UserName})=>{
+    
     const handleOut=()=>{
         Actions.Start()
             };

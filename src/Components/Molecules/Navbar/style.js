@@ -26,7 +26,7 @@ const styles=StyleSheet.create({
 
     },
     IconsContainer:{
-        width:'20%',
+        width:'30%',
         flexDirection:'row',
         
         justifyContent:'space-around',

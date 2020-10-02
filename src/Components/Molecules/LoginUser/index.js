@@ -6,6 +6,7 @@ import {Actions} from 'react-native-router-flux';
 import auth from '@react-native-firebase/auth';
 
 const LoginUsers=()=>{
+    const user = auth().currentUser;
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
@@ -15,7 +16,8 @@ const LoginUsers=()=>{
             email,
             password,
           );
-          console.log(user);
+                    
+          console.warn(user.uid);
           Actions.Home()
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {

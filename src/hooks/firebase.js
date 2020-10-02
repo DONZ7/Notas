@@ -1,5 +1,13 @@
 
 import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
+const user = auth().currentUser;
+if (user) {
+console.warn('User email: ', user.email);
+}
+
+
 
 export const getData = async()=>{
     const datos=[];
@@ -45,3 +53,18 @@ export const deleteData = async(id)=>{
     //const obj={titulo,contenido};
         await firestore().collection('notas').doc(id).delete();
 };
+
+
+
+
+
+
+
+
+
+/*
+export const user = async()=>{
+    //const obj={titulo,contenido};
+        await firestore().collection('notas').doc(id).delete();
+};
+*/

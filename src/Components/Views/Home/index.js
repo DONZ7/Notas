@@ -8,7 +8,13 @@ import auth from '@react-native-firebase/auth';
 
 const Home =()=>{
   const [Data, setData] = useState([]);
-  const [UserName, setUserName] = useState("doney");
+  const [UserName, setUserName] = useState('');
+
+  const user = auth().currentUser;
+/*if (user) {
+console.warn('User email: ', user.uid);
+}*/
+
 
    useEffect(()=>{ 
         itemsData();
@@ -17,6 +23,7 @@ const Home =()=>{
     const itemsData=async()=>{ 
         let items=await getData();
         setData(items);
+        setUserName(user.displayName)
        // console.warn(Data);
     }
 
