@@ -22,11 +22,11 @@ const CreateNote=(props)=>{
     }
 
     const addNote=()=>{
-        setData(titulo,contenido);
+        setData(user.uid,user.email,titulo,contenido);
         Actions.Home();
         console.warn({titulo,contenido})
     }
-    console.warn({titulo,contenido})
+  //  console.warn({titulo,contenido})
     return (
         <Fragment>
              <View style={styles.container}>

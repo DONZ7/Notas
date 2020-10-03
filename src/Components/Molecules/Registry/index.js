@@ -12,7 +12,7 @@ const Registry=()=>{
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
 
-    const user = auth().currentUser;
+ 
     
     const updateEmail=(value)=>{
         setEmail(value);

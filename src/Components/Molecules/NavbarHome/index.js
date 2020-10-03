@@ -11,12 +11,12 @@ const NavbarHome=({UserName})=>{
         Actions.Start()
             };
 
-            let user = auth().currentUser;
+    let user = auth().currentUser;
     
   const signedOut = async () => {
      try{ await auth().signOut()
         handleOut();
-        console.warn(user.uid);}
+        console.warn('sesion cerrada');}
         catch(error){
             console.warn(error)
         }

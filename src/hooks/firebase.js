@@ -2,20 +2,29 @@
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
-let user = auth().currentUser;
+let UID;
+let EMAIL;
 
+export const getUSer= async(uid,email)=>{
+     UID=uid;
+     EMAIL=email;
+    await console.warn(UID);
+}
 
 export const getData = async()=>{
     const datos=[];
     try{
-        var data= await firestore().collection('notas')//.where('idUSer','==',user.uid)
-        .orderBy("titulo", "asc")
+        var data = await firestore().collection('notas').where('idUSer','==',UID)
+       // .orderBy("titulo", "asc")
         
         .get();
             data.forEach((doc) => {
             datos.push({id: doc.id, ...doc.data()});
         });
+
+       
     }
+
  catch (error){
     console.warn(error);
 }
@@ -23,12 +32,11 @@ return datos;
 };
 
 
-export const setData = async(titulo,contenido)=>{
+export const setData = async(UID,EMAIL,titulo,contenido)=>{
     const obj={titulo,contenido};
     try{
         await firestore().collection('notas')
-        .add({idUSer:user.uid,Email:user.email,
-            titulo,contenido});
+        .add({idUSer:UID,Email:EMAIL,titulo,contenido});
         }
         
  catch (error){
