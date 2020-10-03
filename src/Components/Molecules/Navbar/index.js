@@ -9,12 +9,12 @@ import {deleteData} from './../../../hooks/firebase';
 
 const Navbar=({id,titulo,contenido,action})=>{
 
-
+/*
     useEffect(()=>{ 
         
     },[]);
-
-   // const user = auth().currentUser;
+*/
+    const user = auth().currentUser;
 
 
     const deleteNote=()=>{
@@ -32,7 +32,8 @@ const Navbar=({id,titulo,contenido,action})=>{
         <Fragment>
             <View style={styles.container}>
                 <View style={styles.IconsContainer}>
-                <TouchableOpacity onPress={action}>
+                <TouchableOpacity onPress={action} 
+                 style={{ ...styles.openButton2} }>
                     <Icons name="checkmark-sharp" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -40,7 +41,7 @@ const Navbar=({id,titulo,contenido,action})=>{
                 </TouchableOpacity>
                 </View>
                     <View >
-                        <Text style={styles.text}>h</Text>
+                        <Text style={styles.text}>{user.displayName}</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
                 

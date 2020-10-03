@@ -2,14 +2,16 @@
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
-const user = auth().currentUser;
+let user = auth().currentUser;
 
 
 export const getData = async()=>{
     const datos=[];
     try{
-        var data= await firestore().collection('notas')//.where('idUSer','==',user.uid)
-            .get();
+        var data= await firestore().collection('notas').where('idUSer','==',user.uid)
+      //  .orderBy("titulo", "asc")
+        
+        .get();
             data.forEach((doc) => {
             datos.push({id: doc.id, ...doc.data()});
         });
@@ -25,7 +27,7 @@ export const setData = async(titulo,contenido)=>{
     const obj={titulo,contenido};
     try{
         await firestore().collection('notas')
-        .add({//idUSer:user.uid,Email:user.email,
+        .add({idUSer:user.uid,Email:user.email,
             titulo,contenido});
         }
         

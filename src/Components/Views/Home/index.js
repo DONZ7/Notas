@@ -10,7 +10,7 @@ const Home =()=>{
   const [Data, setData] = useState([]);
   const [UserName, setUserName] = useState('');
 
-  const user = auth().currentUser;
+  let user = auth().currentUser;
 /*if (user) {
 console.warn('User email: ', user.uid);
 }*/
@@ -23,14 +23,14 @@ console.warn('User email: ', user.uid);
     const itemsData=async()=>{ 
         let items=await getData();
         setData(items);
-        setUserName(user.displayName)
+        console.warn(user.displayName)
     }
 
     return(
         <Fragment>
              <ImageBackground source={require('./../../../img/fondo.jpg')} style={styles.container}>
             <View style={styles.container}>
-                 <Header UserName={UserName}/>
+                 <Header />
                  <Content Data={Data}/>  
             </View>
             </ImageBackground>

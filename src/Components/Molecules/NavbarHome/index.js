@@ -11,12 +11,12 @@ const NavbarHome=({UserName})=>{
         Actions.Start()
             };
 
-
+            let user = auth().currentUser;
     
   const signedOut = async () => {
      try{ await auth().signOut()
         handleOut();
-        console.warn('User signed out!');}
+        console.warn(user.uid);}
         catch(error){
             console.warn(error)
         }
@@ -31,7 +31,7 @@ const NavbarHome=({UserName})=>{
                     </TouchableOpacity>       
                 </View>
                     <View >
-                        <Text style={styles.text}>{UserName}</Text>
+                        <Text style={styles.text}>{user.displayName}</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
                  <Modals name='log-out' message='¿Desea cerrar sesion?' action={signedOut}/>

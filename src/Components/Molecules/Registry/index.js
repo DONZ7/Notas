@@ -35,7 +35,7 @@ const Registry=()=>{
              await auth().createUserWithEmailAndPassword(email, password);
             Actions.Home();
             const update = {displayName: users};
-            const {user} =await auth().currentUser.updateProfile(update);
+            let {user} =await auth().currentUser.updateProfile(update);
             
             } catch (error) {
                 if (error.code === 'auth/email-already-in-use') {
@@ -90,7 +90,7 @@ const Registry=()=>{
     return(
         <Fragment>
             <View style={styles.column}>
-               <View>
+               <View style={styles.text}>
                <TouchableOpacity onPress={handleStart}>
                      <Icons name="return-up-back" color="purple"/>
                 </TouchableOpacity>
@@ -98,16 +98,16 @@ const Registry=()=>{
             <Text style={styles.text}>Registrarse</Text>
             
             <View style={styles.inputBox}>           
-            <Input value={users} action={updateUSers} placeholder="Nombre"/>
+            <Input value={users} action={updateUSers} placeholder="Usuario"/>
                 </View>
                 <View style={styles.inputBox}>           
                 <Input value={email} action={updateEmail} placeholder="Email"/>
                 </View>
                 <View style={styles.inputBox}>   
-                <Input value={password}  action={updatePassword} placeholder="Password"/>
+                <Input value={password}  action={updatePassword} placeholder="Contraseña"/>
                 </View>
                 <View style={styles.inputBox}>           
-                <Input value={password2} action={updatePassword2}  placeholder="Password"/>
+                <Input value={password2} action={updatePassword2}  placeholder="Confirmar Contraseña"/>
                 </View>
                 <View Style={styles.inputBox} >
                     <Buttons name="SIGUIENTE" action={handleHome}/>

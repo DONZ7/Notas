@@ -39,6 +39,13 @@ const styles=StyleSheet.create({
         justifyContent:'space-around',
         alignItems:'flex-end',
     },
+    openButton2: {
+        // backgroundColor: "blue",
+        marginHorizontal:5,
+         borderRadius: 20,
+         padding: 10,
+     
+       },
     boxImage:{
        flex:1,
         backgroundColor:'black',

@@ -13,7 +13,7 @@ const LoginUsers=()=>{
     const login = async () => {
 
         try {
-          const {user} = await auth().signInWithEmailAndPassword(
+          let {user} = await auth().signInWithEmailAndPassword(
             email,
             password
           );
@@ -73,7 +73,7 @@ const LoginUsers=()=>{
                     <Input value={email} action={updateEmail} placeholder="Email"/>
                 </View>
                 <View style={styles.inputBox}>           
-                <Input value={password} action={updatePassword} placeholder="Password" />
+                <Input value={password} action={updatePassword} placeholder="Contraseña" />
                 </View>
                 <View Style={styles.inputBox}>
                     <Buttons name="SIGUIENTE" action={handleHome}/>
