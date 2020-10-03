@@ -1,5 +1,5 @@
 import React, { Fragment,useState } from 'react';
-import {View,Text,TouchableOpacity} from 'react-native';
+import {View,Text,TouchableOpacity,Alert} from 'react-native';
 import styles from './style';
 import { Input, Buttons ,Icons} from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
@@ -38,8 +38,32 @@ const Registry=()=>{
             const {user} =await auth().currentUser.updateProfile(update);
             
             } catch (error) {
+                if (error.code === 'auth/email-already-in-use') {
+                    alert('El correo ya esta registrado por otro usuario ');
+                    console.warn('That email address is already in use!');
+                  }
+              
+                  if (error.code === 'auth/invalid-email') {
+                    alert('El correo ingresado es invalido');
+                    console.warn('That email address is invalid!');
+                  }
+    
+                  if (error.code === 'auth/network-request-failed') {
+                    alert('Error de su conexion a internet');
+                    console.warn('Usuario no registrado');
+                  }
+    
+                  if (error.code === 'auth/wrong-password') {
+                    alert('La contraseña ingresada es incorrecta');
+                    console.warn('Usuario no registrado');
+                  }
+
+                  if (error.code === 'auth/weak-password') {
+                    alert('La contraseña debe de tener 6 o mas caracteres');
+                    console.warn('Usuario no registrado');
+                  }
                 
-              console.error(error);
+              console.error(error.code);
             }
           };
     
@@ -50,8 +74,16 @@ const Registry=()=>{
      Actions.Start()
  };
         const handleHome=()=>{
-           // console.warn({email,password})
-            registro();
+            if (password=="" || email=="" || password2=="" || users=="") { 
+                alert('Debe de llenar todos los campos');
+               } 
+            else if (password!=password2) { 
+                alert('Las contraseñas ingresadas no coinciden');
+               } 
+             else{ 
+                registro();
+               }
+            
             
         };
 

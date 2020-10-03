@@ -7,7 +7,8 @@ import {Actions} from 'react-native-router-flux';
 import auth from '@react-native-firebase/auth';
 
 const CreateNote=(props)=>{
-  
+    const user = auth().currentUser;
+
     const [titulo, setTitulo] = useState("");
     const [contenido, setContenido] = useState("");
     const [id, setId] = useState(props.id);

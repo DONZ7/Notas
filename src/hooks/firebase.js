@@ -25,7 +25,8 @@ export const setData = async(titulo,contenido)=>{
     const obj={titulo,contenido};
     try{
         await firestore().collection('notas')
-        .add({idUSer:user.uid,Email:user.email,titulo,contenido});
+        .add({//idUSer:user.uid,Email:user.email,
+            titulo,contenido});
         }
         
  catch (error){

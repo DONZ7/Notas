@@ -22,12 +22,6 @@ const LoginUsers=()=>{
           Actions.Home()
         } catch (error) {
 
-            
-            if (error.code === 'auth/email-already-in-use') {
-                alert('Dhola');
-                console.warn('That email address is already in use!');
-              }
-          
               if (error.code === 'auth/invalid-email') {
                 alert('El correo ingresado es invalido');
                 console.warn('That email address is invalid!');
@@ -56,13 +50,12 @@ const LoginUsers=()=>{
     }
 
         const handleHome=()=>{
-            if (password=="" || email=="") { 
+            if (password=="" || email=="" ) { 
                 alert('Debe de llenar todos los campos');
                }
              else{ 
                 login();
                }
-        
         };
     
         const handleStart=()=>{
