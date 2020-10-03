@@ -8,8 +8,8 @@ let user = auth().currentUser;
 export const getData = async()=>{
     const datos=[];
     try{
-        var data= await firestore().collection('notas').where('idUSer','==',user.uid)
-      //  .orderBy("titulo", "asc")
+        var data= await firestore().collection('notas')//.where('idUSer','==',user.uid)
+        .orderBy("titulo", "asc")
         
         .get();
             data.forEach((doc) => {

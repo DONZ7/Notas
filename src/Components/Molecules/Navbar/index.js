@@ -45,7 +45,7 @@ const Navbar=({id,titulo,contenido,action})=>{
                     </View>
                 <View style={styles.IconsContainerRigth}>
                 
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.IconsContainerRigth}>
                     <Icons name="image" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>

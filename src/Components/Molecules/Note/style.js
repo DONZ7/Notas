@@ -37,7 +37,7 @@ const styles=StyleSheet.create({
     },
     boxImage:{
        flex:1,
-        backgroundColor:'red',
+        backgroundColor:'#F3D5F9',
         margin:2,
         borderRadius:5,
         height:'80%',
