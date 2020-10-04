@@ -5,10 +5,10 @@ import styles from './style';
 import {setData} from './../../../hooks/firebase';
 import {Actions} from 'react-native-router-flux';
 import auth from '@react-native-firebase/auth';
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 const CreateNote=(props)=>{
     const user = auth().currentUser;
-
     const [titulo, setTitulo] = useState("");
     const [contenido, setContenido] = useState("");
     const [id, setId] = useState(props.id);
@@ -21,9 +21,20 @@ const CreateNote=(props)=>{
         setContenido(value);
     }
 
+    const MessageSuccess=() => {
+    
+            showMessage({
+                icon: "success", position: "right",
+                message: titulo,
+                description: "Nota creada exitosamente",
+                type: "success",
+            });
+    }
+
     const addNote=()=>{
         setData(user.uid,user.email,titulo,contenido);
         Actions.Home();
+        MessageSuccess()
         console.warn({titulo,contenido})
     }
   //  console.warn({titulo,contenido})

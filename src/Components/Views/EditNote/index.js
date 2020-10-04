@@ -4,6 +4,7 @@ import { Navbar,NoteBody } from '../../Molecules';
 import styles from './style';
 import {EditData} from './../../../hooks/firebase';
 import {Actions} from 'react-native-router-flux';
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 const EditNote=(props)=>{
   
@@ -23,9 +24,20 @@ const EditNote=(props)=>{
     }
     
 
+    const MessageSuccess=() => {
+    
+        showMessage({
+            icon: "success", position: "right",
+            message: titulo,
+            description: "Nota editada exitosamente",
+            type: "success",
+        });
+}
+
     const EditNote=()=>{
         EditData(id,titulo,contenido);
         Actions.Home();
+        MessageSuccess();
         console.warn({id})
     }
 

@@ -4,22 +4,28 @@ import {Icons,Modals} from '../../Atoms';
 import styles from './style';
 import {Actions} from 'react-native-router-flux';
 import auth from '@react-native-firebase/auth';
-
+import { showMessage, hideMessage } from "react-native-flash-message";
 import {deleteData} from './../../../hooks/firebase';
 
 const Navbar=({id,titulo,contenido,action})=>{
 
-/*
-    useEffect(()=>{ 
-        
-    },[]);
-*/
+   
+    const MessageSuccess=() => {
+    
+        showMessage({
+            icon: "danger", position: "right",
+            message: titulo,
+            description: "Nota eliminada exitosamente",
+            type: "danger",
+        });
+}
     const user = auth().currentUser;
 
 
     const deleteNote=()=>{
         deleteData(id);
-        Actions.Home()
+        Actions.Home();
+        MessageSuccess();
         console.warn({id})
     }
 

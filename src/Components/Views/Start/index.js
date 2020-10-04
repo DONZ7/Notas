@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 import {View,Text, Button,StyleSheet,ImageBackground} from 'react-native';
-
-
 import {Modals} from '../../Atoms';
 import { Header,Content } from '../../Organisms';
 import { Navbar, Registry, LogoStart } from '../../Molecules';
