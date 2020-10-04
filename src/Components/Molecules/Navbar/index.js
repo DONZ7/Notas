@@ -13,7 +13,7 @@ const Navbar=({id,titulo,contenido,action})=>{
     const MessageSuccess=() => {
     
         showMessage({
-            icon: "danger", position: "right",
+            icon: "success", position: "right",
             message: titulo,
             description: "Nota eliminada exitosamente",
             type: "danger",
