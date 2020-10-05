@@ -1,33 +1,32 @@
-import React, { Fragment } from 'react';
-import {View,Text,StyleSheet,ScrollView, TouchableOpacity, TouchableOpacityComponent} from 'react-native';
+import React, { Fragment,useEffect } from 'react';
+import {View,SafeAreaView,StyleSheet,ScrollView, TouchableOpacity, FlatList} from 'react-native';
 import styles from './style';
 import {Note} from '../../Molecules';
 import {AddNote} from '../../Atoms';
 import {Actions} from 'react-native-router-flux';
-//import CreateNote from '../../Views/CreateNote';
+import {getData} from './../../../hooks/firebase';
 
-const Content=()=>{
+const Content=({Data})=>{
 
 const handlePress=()=>{
    Actions.CreateNote();
-    
 }
+
+const handleNote=({item})=>{
+    //console.warn({item});
+    return <Note titulo={item.titulo} contenido={item.contenido} id={item.id}/>
+ }
+ 
 
     return(
         <Fragment>
             <ScrollView >
-                <TouchableOpacity onPress={()=>{handlePress}}>
-                    <Note/>
-               
-          
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
-                <Note/>
-
-                </TouchableOpacity>
+           
+            <FlatList
+                data={Data}
+                renderItem={handleNote}
+                keyExtractor={items => items.id}/>
+           
             </ScrollView>
            
                 <View style={styles.noteBody} >  

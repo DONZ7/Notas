@@ -1,33 +1,45 @@
 import React, { Fragment,useState } from 'react';
-import {View,Text,ScrollView,TextInput} from 'react-native';
+import {View,Text,ScrollView,TextInput,StyleSheet} from 'react-native';
 import styles from './style';
+import Textarea from 'react-native-textarea';
+
+import firestore from '@react-native-firebase/firestore';
 
 import {Input,Images}  from '../../Atoms'
 
-const NoteBody=()=>{
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    
-    const notes=()=>{
-        console.warn({title,body})
-    }
+const NoteBody=({titulo,updateTitle,updateBody,contenido})=>{
+
+
     return(
         <Fragment>
             <ScrollView style={styles.container}>
               <View style={styles.noteBody}>
                 <View >
                     
-                    <Input style={styles.text} name={title} action={setTitle}/>
+                <TextInput
+                    style={styles.text}
+                    placeholder='Titulo..'
+                    onChangeText={updateTitle}
+                    value={titulo}
+                    maxLength={30}
+                    />
 
                 </View>
                 <View style={styles.space}></View>
 
                 <View style={styles.noteBody}>
-                 <TextInput
-                    style={styles.box}
-                    onChangeText={setBody}
-                    value={body}
+                <View  style={styles.container2}>
+                    <Textarea
+                        containerStyle={styles.textareaContainer}
+                        style={styles.textarea}
+                        onChangeText={updateBody}
+                        value={contenido}
+                        maxLength={200}
+                        placeholder={'Texto...'}
+                        placeholderTextColor={'#c7c7c7'}
+                        underlineColorAndroid={'transparent'}
                     />
+                    </View>
                 </View>
 
                 <View style={styles.boxImage}>
@@ -40,6 +52,9 @@ const NoteBody=()=>{
 }
 
 export default NoteBody;
+
+
+
 
 /*
  <Input name="hola este es mi nombre Nos"/>

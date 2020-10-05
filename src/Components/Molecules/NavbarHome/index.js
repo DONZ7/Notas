@@ -1,13 +1,26 @@
 import React, { Fragment } from 'react';
 import {View,Text,TouchableOpacity} from 'react-native';
-import {Icons} from '../../Atoms';
+import {Icons,Modals} from '../../Atoms';
 import styles from './style';
 import {Actions} from 'react-native-router-flux';
+import auth from '@react-native-firebase/auth';
 
-const NavbarHome=()=>{
+const NavbarHome=({UserName})=>{
+    
     const handleOut=()=>{
         Actions.Start()
             };
+
+    let user = auth().currentUser;
+    
+  const signedOut = async () => {
+     try{ await auth().signOut()
+        handleOut();
+        console.warn('sesion cerrada');}
+        catch(error){
+            console.warn(error)
+        }
+};
 
     return(
         <Fragment>
@@ -18,12 +31,10 @@ const NavbarHome=()=>{
                     </TouchableOpacity>       
                 </View>
                     <View >
-                        <Text style={styles.text}>Titulo</Text>
+                        <Text style={styles.text}>{user.displayName}</Text>
                     </View>
                 <View style={styles.IconsContainerRigth}>
-                <TouchableOpacity onPress={handleOut}>
-                    <Icons name="log-out" color="white"/>
-                </TouchableOpacity>
+                 <Modals name='log-out' message='¿Desea cerrar sesion?' action={signedOut}/>
                 </View>
             </View>
         </Fragment>

@@ -26,19 +26,27 @@ const styles=StyleSheet.create({
 
     },
     IconsContainer:{
-        width:'20%',
+        width:'30%',
         flexDirection:'row',
         
         justifyContent:'space-around',
         alignItems:'center',
     },
     IconsContainerRigth:{
+        alignSelf:'center',
         width:'30%',
         flexDirection:'row',
        
         justifyContent:'space-around',
         alignItems:'flex-end',
     },
+    openButton2: {
+        // backgroundColor: "blue",
+        marginHorizontal:5,
+         borderRadius: 20,
+         padding: 10,
+     
+       },
     boxImage:{
        flex:1,
         backgroundColor:'black',

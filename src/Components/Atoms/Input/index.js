@@ -4,14 +4,15 @@ import styles from './style';
 import { TextInput } from 'react-native';
 
 const Input = (props) => {
-  const {name,action}=props
-  const [value, setValue] = useState();
+  const {value,action,placeholder,password}=props
 
   return (
     <TextInput
       style={styles.container}
+      placeholder={placeholder}
       onChangeText={action}
-      value={name}
+      value={value}
+     
     />
   );
 }

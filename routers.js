@@ -1,20 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Scene,Router,Stack} from 'react-native-router-flux';
-import {Home, CreateNote,Login,Start,Registry} from './src/Components/Views';
+import {Home, CreateNote,Login,Start,Registry,EditNote} from './src/Components/Views';
 
 const Routers=()=>{
   return (
       <Router>
-        <Scene key="root">
+        <Stack key="root">
     
           <Scene key="Start" component={Start} title="Start" initial hideNavBar/>
           <Scene key='Login' component={Login} title="Login" hideNavBar/> 
           <Scene key='Registry' component={Registry} title="Registry" hideNavBar/> 
           <Scene key="CreateNote" component={CreateNote} title="CreateNote"  hideNavBar/> 
+          <Scene key="EditNote" component={EditNote} title="EditNote"  hideNavBar/> 
           <Scene key="Home" component={Home} title="Home"  hideNavBar/>     
           
-        </Scene>
+        </Stack>
       </Router>
   );
 }

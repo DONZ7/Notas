@@ -3,10 +3,10 @@ import {View,Text,StyleSheet} from 'react-native';
 import styles from './style';
 import {NavbarHome} from  '../../Molecules';
 
-const Header=()=>{
+const Header=({UserName})=>{
     return(
         <Fragment>
-                <NavbarHome/>
+                <NavbarHome UserName={UserName}/>
         </Fragment>
     );
 }

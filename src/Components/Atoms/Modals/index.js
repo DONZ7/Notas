@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Icons} from '../../Atoms';
 import {
   Alert,
   Modal,
@@ -8,7 +9,7 @@ import {
   View
 } from "react-native";
 
-const Modals = () => {
+const Modals = ({name,message,action}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
@@ -22,16 +23,30 @@ const Modals = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <Text style={styles.modalText}>{message}</Text>
 
+<View style={styles.column}>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
+              style={{ ...styles.openButton2,backgroundColor:'#C28ECD' }}
+               onPress={() => {
+               // onPress=
+               {action()}
+               setModalVisible(!modalVisible);
               }}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle} >Si</Text>
             </TouchableHighlight>
+
+            <TouchableHighlight
+        style={{ ...styles.openButton2,backgroundColor:'#C28ECD'}}
+        onPress={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <Text style={styles.textStyle}>No</Text>
+      </TouchableHighlight>
+      </View>
+            
           </View>
         </View>
       </Modal>
@@ -42,8 +57,10 @@ const Modals = () => {
           setModalVisible(true);
         }}
       >
-        <Text style={styles.textStyle}>Show Modal</Text>
+       <Icons name={name} color="white"/>
       </TouchableHighlight>
+
+      
     </View>
   );
 };
@@ -53,13 +70,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+
   },
   modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
+    margin: 10,
+    backgroundColor: "#F3E7FA",
+    borderRadius: 10,
+    padding: 70,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -71,19 +88,31 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   openButton: {
-    backgroundColor: "#F194FF",
+   // backgroundColor: "purple",
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    //elevation: 5
   },
+  openButton2: {
+    // backgroundColor: "purple",
+    marginHorizontal:5,
+     borderRadius: 10,
+     padding: 20,
+     elevation: 5
+   },
   textStyle: {
-    color: "white",
+    color: "purple",
     fontWeight: "bold",
     textAlign: "center"
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: "center",
+    color:'purple'
+  },
+  column:{
+    flexDirection:"row",
+   
   }
 });
 

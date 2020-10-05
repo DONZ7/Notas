@@ -34,6 +34,8 @@ const styles=StyleSheet.create({
     text:{
         
         fontSize:20,
+        marginHorizontal:10,
+        backgroundColor: '#F5FCFF',
         
     }
 ,
@@ -43,6 +45,25 @@ const styles=StyleSheet.create({
         flexWrap:"wrap"
         
     }
+    ,
+    textareaContainer: {
+      height: 280,
+      padding: 5,
+      backgroundColor: '#F5FCFF',
+    },
+    textarea: {
+      textAlignVertical: 'top',  // hack android
+      height: 170,
+      fontSize: 14,
+      color: '#333',
+    },
+    container2: {
+        flex: 1,
+        padding: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      
 })
 
 export default styles;
