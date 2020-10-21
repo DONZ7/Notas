@@ -27,7 +27,7 @@ const styles=StyleSheet.create({
   
     boxImage:{
        flex:1,
-        backgroundColor:'red',
+        backgroundColor:'white',
         alignSelf:'center'
     },
 
@@ -103,7 +103,8 @@ const styles=StyleSheet.create({
       },
       imageBox7: {
         width: 300,
-        height: 300
+        height: 300,
+        resizeMode: 'stretch',
       },
       
 })

@@ -100,7 +100,7 @@ const CreateNote=(props)=>{
       setUploading(false);
       Alert.alert(
         'Imagen guardada!',
-        'Imagen guardada en Firebase Cloud Storage.'
+        'La imagen ha sido agregada a su nota de texto.'
       );
      
       setImage(null);
@@ -113,7 +113,7 @@ const CreateNote=(props)=>{
     return (
         <Fragment>
              <View style={styles.container}>
-                <Navbar titulo={titulo} contenido={contenido} id={id} action={addNote}/>
+                <Navbar titulo={titulo} contenido={contenido} id={id} action={addNote} selectImage={selectImage} uploadImage={uploadImage} />
                 <NoteBody titulo={titulo} updateTitle={updateTitle} contenido={contenido} updateBody={updateBody} 
                 imageUrl={imageUrl} image={image} selectImage={selectImage} uploadImage={uploadImage}
                 uploading={uploading} transferred={transferred}/>

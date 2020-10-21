@@ -1,5 +1,5 @@
 import React,{Fragment,useState} from 'react';
-import {View,Text} from 'react-native';
+import {View,Alert} from 'react-native';
 import { Navbar,NoteBody } from '../../Molecules';
 import styles from './style';
 import {EditData} from './../../../hooks/firebase';
@@ -102,8 +102,8 @@ const selectImage = () => {
     }
     setUploading(false);
     Alert.alert(
-      'Imagen guardada!',
-      'Imagen guardada en Firebase Cloud Storage.'
+        'Imagen guardada!',
+        'La imagen ha sido agregada a su nota de texto.'
     );
    
     setImage(null);
@@ -118,7 +118,7 @@ const selectImage = () => {
     return (
         <Fragment>
              <View style={styles.container}>
-                <Navbar id={id} titulo={titulo} contenido={contenido}  action={EditNote}/>
+                <Navbar id={id} titulo={titulo} contenido={contenido}  action={EditNote} selectImage={selectImage}/>
                 <NoteBody titulo={titulo} updateTitle={updateTitle} contenido={contenido} updateBody={updateBody}
                 imageUrl={imageUrl} image={image} selectImage={selectImage} uploadImage={uploadImage}
                 uploading={uploading} transferred={transferred}/>

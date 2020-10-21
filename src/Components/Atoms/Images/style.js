@@ -3,8 +3,10 @@ import {StyleSheet} from 'react-native';
 const styles=StyleSheet.create({
     image:{
         backgroundColor:'white',
-        width:230,
-        height:250,
+        width:'100%',
+        height:'100%',
+        resizeMode:'stretch',
+
     },
 
 })

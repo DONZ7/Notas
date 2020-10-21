@@ -7,7 +7,7 @@ import auth from '@react-native-firebase/auth';
 import { showMessage, hideMessage } from "react-native-flash-message";
 import {deleteData} from './../../../hooks/firebase';
 
-const Navbar=({id,titulo,contenido,action})=>{
+const Navbar=({id,titulo,contenido,action,selectImage,uploadImage})=>{
 
    
     const MessageSuccess=() => {
@@ -51,7 +51,8 @@ const Navbar=({id,titulo,contenido,action})=>{
                     </View>
                 <View style={styles.IconsContainerRigth}>
                 
-                <TouchableOpacity style={styles.IconsContainerRigth}>
+                <TouchableOpacity onPress={selectImage}
+                 style={styles.IconsContainerRigth}>
                     <Icons name="image" color="white"/>
                 </TouchableOpacity>
                 <TouchableOpacity>

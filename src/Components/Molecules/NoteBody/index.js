@@ -49,9 +49,7 @@ const NoteBody=({titulo,updateTitle,updateBody,contenido,imageUrl,image,uploadIm
                    
 
                 <SafeAreaView style={styles.container7}>
-          <TouchableOpacity style={styles.selectButton} onPress={selectImage}>
-            <Text style={styles.buttonText}>Agregar imagen</Text>
-          </TouchableOpacity>
+          
           <View style={styles.imageContainer}>
             {image !== null ? (
               <Image source={{ uri: image.uri }} style={styles.imageBox7} />
@@ -67,8 +65,9 @@ const NoteBody=({titulo,updateTitle,updateBody,contenido,imageUrl,image,uploadIm
             )}
           </View>
         </SafeAreaView>
-
+                <View style={styles.imageBox7}>
                 <Images photo={imageUrl} style={styles.imageBox7}/>
+                </View>
                 </View>
               </View>
             </ScrollView>

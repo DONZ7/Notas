@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {View,Text,StyleSheet,Image} from 'react-native';
-//import styles from './style';
+import styles from './style';
 
 const Images=(props)=>{
     const {photo} = props;
@@ -16,12 +16,3 @@ const Images=(props)=>{
 
 
 export default Images;
-
-const styles=StyleSheet.create({
-    image:{
-        backgroundColor:'white',
-        width:230,
-        height:250,
-    },
-
-})
