@@ -19,11 +19,13 @@ import {
 import Routers from './routers';
 import {firebase} from './src/Components/Atoms'
 import FlashMessage from "react-native-flash-message";
+import UploadPicker  from './Upload';
 
 const App = () => {
   return (
     <Fragment>
       <View style={styles.scrollView}>
+        
         <Routers/>
         <FlashMessage position="top" />
       </View>

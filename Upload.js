@@ -1,22 +1,23 @@
-import React, { Fragment,useState } from 'react';
-import {View,Text,ScrollView,TextInput,SafeAreaView,TouchableOpacity,Image,Alert} from 'react-native';
-import styles from './style';
-import Textarea from 'react-native-textarea';
-
-import firestore from '@react-native-firebase/firestore';
-import UploadPicker from './../../../../Upload';
-import {Input,Images}  from '../../Atoms'
+import React, { useState } from 'react';
+import {
+  View,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+  Alert,
+  Image
+} from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
 import * as Progress from 'react-native-progress';
 
-
-const NoteBody=({titulo,updateTitle,updateBody,contenido})=>{
+const UploadPicker=()=> {
     const [imageUrl, setImageUrl] = useState(null);
     const [image, setImage] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [transferred, setTransferred] = useState(0);
-    
     const selectImage = () => {
         const options = {
           title:'Seleccionar imagen',
@@ -78,49 +79,14 @@ const NoteBody=({titulo,updateTitle,updateBody,contenido})=>{
     };
 
 
-
-    return(
-        <Fragment>
-            <ScrollView style={styles.container}>
-              <View style={styles.noteBody}>
-                <View >
-                    
-                <TextInput
-                    style={styles.text}
-                    placeholder='Titulo..'
-                    onChangeText={updateTitle}
-                    value={titulo}
-                    maxLength={30}
-                    />
-
-                </View>
-                <View style={styles.space}></View>
-
-                <View style={styles.noteBody}>
-                <View  style={styles.container2}>
-                    <Textarea
-                        containerStyle={styles.textareaContainer}
-                        style={styles.textarea}
-                        onChangeText={updateBody}
-                        value={contenido}
-                        maxLength={200}
-                        placeholder={'Texto...'}
-                        placeholderTextColor={'#c7c7c7'}
-                        underlineColorAndroid={'transparent'}
-                    />
-                    </View>
-                </View>
-
-                <View style={styles.boxImage}>
-                   
-
-                <SafeAreaView style={styles.container7}>
+      return (
+        <SafeAreaView style={styles.container}>
           <TouchableOpacity style={styles.selectButton} onPress={selectImage}>
             <Text style={styles.buttonText}>Agregar imagen</Text>
           </TouchableOpacity>
           <View style={styles.imageContainer}>
             {image !== null ? (
-              <Image source={{ uri: image.uri }} style={styles.imageBox7} />
+              <Image source={{ uri: image.uri }} style={styles.imageBox} />
             ) : null}
             {uploading ? (
               <View style={styles.progressBarContainer}>
@@ -133,23 +99,49 @@ const NoteBody=({titulo,updateTitle,updateBody,contenido})=>{
             )}
           </View>
         </SafeAreaView>
+      );
+    }
 
-                <Images photo={imageUrl}/>
-                </View>
-              </View>
-            </ScrollView>
-        </Fragment>
-    );
-}
+export default UploadPicker;
 
-export default NoteBody;
-
-
-
-
-/*
- <Input name="hola este es mi nombre Nos"/>
-                 
-                <View style={styles.space}></View>
-                <Input name="hola este es mi nombre dddddbvdhvshvhsvdhsvhdvshvbhdhvdh"/>
-                */
+    const styles = StyleSheet.create({
+        container: {
+          flex: 1,
+          alignItems: 'center',
+          backgroundColor: 'white'
+        },
+        selectButton: {
+          borderRadius: 5,
+          width: 150,
+          height: 50,
+          backgroundColor: '#8ac6d1',
+          alignItems: 'center',
+          justifyContent: 'center'
+        },
+        uploadButton: {
+          borderRadius: 5,
+          width: 150,
+          height: 50,
+          backgroundColor: 'purple',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: 20
+        },
+        buttonText: {
+          color: 'white',
+          fontSize: 18,
+          fontWeight: 'bold'
+        },
+        imageContainer: {
+          marginTop: 30,
+          marginBottom: 50,
+          alignItems: 'center'
+        },
+        progressBarContainer: {
+          marginTop: 20
+        },
+        imageBox: {
+          width: 300,
+          height: 300
+        }
+      });
