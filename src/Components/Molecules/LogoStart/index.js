@@ -18,7 +18,7 @@ const LogoStart=()=>{
             <View style={styles.container}>
                 <View style={styles.IconsContainer}>
                     <View >
-                         <Images />
+                         <Images photo="" he="250" wi="300"/>
                     </View>
                          <View style={styles.space}></View>
                     </View>

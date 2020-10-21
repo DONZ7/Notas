@@ -32,11 +32,11 @@ return datos;
 };
 
 
-export const setData = async(UID,EMAIL,titulo,contenido)=>{
-    const obj={titulo,contenido};
+export const setData = async(UID,EMAIL,titulo,contenido,imageUrl)=>{
+    const obj={titulo,contenido,imageUrl};
     try{
         await firestore().collection('notas')
-        .add({idUSer:UID,Email:EMAIL,titulo,contenido});
+        .add({idUSer:UID,Email:EMAIL,titulo,contenido,imageUrl:imageUrl});
         }
         
  catch (error){
@@ -44,8 +44,8 @@ export const setData = async(UID,EMAIL,titulo,contenido)=>{
 }
 };
 
-export const EditData = async(id,titulo,contenido)=>{
-    const obj={titulo,contenido};
+export const EditData = async(id,titulo,contenido,imageUrl)=>{
+    const obj={titulo,contenido,imageUrl};
     try{
         await firestore().collection('notas').doc(id)
             .update(obj);
