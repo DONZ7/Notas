@@ -37,11 +37,18 @@ const styles=StyleSheet.create({
     },
     boxImage:{
        flex:1,
-        backgroundColor:'#F3D5F9',
+        backgroundColor:'yellow',
         margin:2,
         borderRadius:5,
         height:'80%',
+        width:'10%',
     },
+    ImageStorage:{
+        
+         height:20,
+         width:20,
+         resizeMode: 'stretch',
+     },
 
     text:{
         flex:6,

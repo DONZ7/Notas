@@ -6,24 +6,50 @@
  * @flow strict-local
  */
 
-import React,{Fragment} from 'react';
+import React,{Fragment,useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
-  StatusBar,
+  StatusBar,Alert
 } from 'react-native';
 
 import Routers from './routers';
 import {firebase} from './src/Components/Atoms'
 import FlashMessage from "react-native-flash-message";
 
+import messaging from '@react-native-firebase/messaging';
+
 const App = () => {
+
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(
+      async remoteMessage => {
+      console.log('Bienvenido a nuestra apps!', remoteMessage);
+    },);
+
+    const topicSubscriber=messaging()
+    .subscribeToTopic('Doney')
+    .then(()=>console.log('hola este es una prueba'));
+
+   const backgroundSubcriber= messaging().setBackgroundMessageHandler(
+     async remoteMessage => {
+      console.log('Hola un gusto saludarte!', remoteMessage);
+    },);
+
+    return ()=>{
+    unsubscribe();
+    topicSubscriber();
+    backgroundSubcriber();
+  }
+  }, []);
+
   return (
     <Fragment>
       <View style={styles.scrollView}>
+        
         <Routers/>
         <FlashMessage position="top" />
       </View>

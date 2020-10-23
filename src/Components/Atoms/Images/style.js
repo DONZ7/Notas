@@ -2,9 +2,11 @@ import {StyleSheet} from 'react-native';
 
 const styles=StyleSheet.create({
     image:{
-        backgroundColor:'purple',
-        width:230,
-        height:250,
+        backgroundColor:'white',
+        width:'100%',
+        height:'100%',
+        resizeMode:'stretch',
+
     },
 
 })

@@ -23,6 +23,12 @@ const styles=StyleSheet.create({
       
 
     },
+    space2:{
+        height:250,
+        width:230
+      
+
+    },
   
     line:{
        height:10,

@@ -1,15 +1,18 @@
 import React, { Fragment,useState } from 'react';
-import {View,Text,ScrollView,TextInput,StyleSheet} from 'react-native';
+import {View,Text,ScrollView,TextInput,SafeAreaView,TouchableOpacity,Image,Alert} from 'react-native';
 import styles from './style';
 import Textarea from 'react-native-textarea';
 
 import firestore from '@react-native-firebase/firestore';
-
+import UploadPicker from './../../../../Upload';
 import {Input,Images}  from '../../Atoms'
+import * as Progress from 'react-native-progress';
 
-const NoteBody=({titulo,updateTitle,updateBody,contenido})=>{
 
 
+const NoteBody=({titulo,updateTitle,updateBody,contenido,imageUrl,image,uploadImage,selectImage,
+    uploading,transferred})=>{
+    
     return(
         <Fragment>
             <ScrollView style={styles.container}>
@@ -43,7 +46,28 @@ const NoteBody=({titulo,updateTitle,updateBody,contenido})=>{
                 </View>
 
                 <View style={styles.boxImage}>
-                <Images/>
+                   
+
+                <SafeAreaView style={styles.container7}>
+          
+          <View style={styles.imageContainer}>
+            {image !== null ? (
+              <Image source={{ uri: image.uri }} style={styles.imageBox7} />
+            ) : null}
+            {uploading ? (
+              <View style={styles.progressBarContainer}>
+                <Progress.Bar progress={transferred} width={300} />
+              </View>
+            ) : (
+              <TouchableOpacity style={styles.uploadButton} onPress={uploadImage}>
+                <Text style={styles.buttonText}>Guardar imagen</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        </SafeAreaView>
+                <View style={styles.imageBox7}>
+                <Images photo={imageUrl} style={styles.imageBox7}/>
+                </View>
                 </View>
               </View>
             </ScrollView>
